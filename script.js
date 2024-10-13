@@ -60,7 +60,6 @@ function goStore() {
 function goCave() {
     alert("Going to the Cave");
 }
-
 function fightDragon() {
     alert("Fighting Dragon");
 }
