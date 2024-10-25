@@ -1,41 +1,117 @@
+/* General Styles */
 body {
-    background-color: darkblue;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-#text {
-    background-color: black;
-    color: white;
-    padding: 10px;
-}
-
-#game{
+/* Game Container */
+#game {
     max-width: 500px;
-    max-height: 400px;
-    background-color: lightgray;
+    max-height: 500px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for style */
     color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
+    padding: 20px;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Buttons */
+button {
+    width: 100%;
     padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
 }
 
-#controls {
-     border: 1px solid black;
-     padding: 5px;
-}
-
-#stats {
-    border: 1px solid black;
+button:hover {
+    background-color: #ffc107;
     color: black;
-    padding: 5px;
+    transform: scale(1.1);
+}
+
+/* Text Area */
+#text {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Stats Section */
+#stats, #monsterStats, #controls {
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .stat {
     padding-right: 10px;
 }
 
+/* Monster Stats Slide-in */
 #monsterStats {
-    display: none;
-    border:1px black solid;
-    color: white;
-    padding: 5px;
-    background-color: red;
+    display: block;
+    animation: slideIn 1s forwards;
+    background-color: darkred;
+}
+
+/* Health Bars */
+.health-bar {
+    width: 100%;
+    height: 25px;
+    background-color: darkgreen;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.health-bar span {
+    display: block;
+    height: 100%;
+    background-color: limegreen;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Glowing Stat Texts */
+#stats span strong {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #ff9, 0 0 20px #ff9, 0 0 30px #ff6; }
+    100% { text-shadow: 0 0 5px #ff3, 0 0 10px #ff6; }
 }
